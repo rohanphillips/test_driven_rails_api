@@ -8,5 +8,4 @@ RSpec.describe Customer, type: :model do
   it { should validate_presence_of(:last_name) }
   it { should validate_presence_of(:age)}
   it { should validate_presence_of(:phone_number) }
-
 end

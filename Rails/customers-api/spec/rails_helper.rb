@@ -3,10 +3,11 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
-#require database cleaner at top level
+#require database_cleaner, factory_bot_rails, shoulda-matchers and faker at top level
 require 'database_cleaner'
 require 'factory_bot_rails'
 require 'shoulda-matchers'
+require 'faker'
 
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
@@ -106,11 +107,7 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-# [...]
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-# [...]
-RSpec.configuration do |config|
-  # [...]
+Dir[Rails.root.join('spec/support/*.rb')].each { |f| require f }
+RSpec.configure do |config|
   config.include RequestSpecHelper, type: :request
-  # [...]
 end
