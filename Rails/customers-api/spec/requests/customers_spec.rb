@@ -6,7 +6,7 @@ RSpec.describe 'Customers', type: :request do
   let!(:customer_id) { customers.first.id }
   #Test suite for GET / customer
   describe 'GET /customers' do
-    before { get '/customers' }
+    before { get '/api/v1/customers' }
     it 'returns customers' do
       expect(json).not_to be_empty
       expect(json.size).to eq(5)
