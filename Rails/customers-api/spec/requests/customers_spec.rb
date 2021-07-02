@@ -29,7 +29,7 @@ RSpec.describe 'Customers', type: :request do
       it 'creates a customer' do
         expect(json["first_name"]).to eq(valid_customer[:first_name])
       end
-      it 'returns status code 201' do
+      it 'returns status code 200' do
         expect(response).to have_http_status(200)
       end
     end
